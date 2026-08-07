@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دەزگای خێرخوازی هیوا | مؤسسة الأمل الخيرية</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #059669;
+            --primary-light: #10b981;
+            --primary-dark: #047857;
+            --secondary-color: #0f172a;
+            --accent-color: #f59e0b;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .lang-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            color: var(--secondary-color);
+        }
+
+        .lang-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 190px 2rem 100px;
+            background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.12), transparent),
+                        linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .badge-pulse {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--primary-dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+            color: white;
+            padding: 1.1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(5, 150, 105, 0.35);
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 18px 35px rgba(5, 150, 105, 0.45);
+        }
+
+        /* VIP Recognition Banner */
+        .vip-banner {
+            max-width: 800px;
+            margin: -30px auto 40px;
+            background: linear-gradient(135deg, #fffbe3 0%, #fef3c7 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 20px;
+            padding: 1.8rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+
+        .vip-banner h3 {
+            color: #b45309;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .vip-banner p {
+            color: #78350f;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 2rem;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .impact-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card h4 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+            font-weight: 900;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 5px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 10px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            background-color: #e2e8f0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-body {
+            padding: 1.8rem;
+        }
+
+        .card-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary-color);
+            font-weight: 800;
+        }
+
+        .card-body p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Payment Section (Korek Card) */
+        .payment-section {
+            background: white;
+            padding: 90px 2rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .payment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            border: 2px solid #ecfdf5;
+        }
+
+        .inspirational-quote {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-right: 5px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        html[dir="ltr"] .inspirational-quote {
+            border-right: none;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            margin-top: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: right;
+        }
+
+        html[dir="ltr"] .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: 800;
+            color: var(--secondary-color);
+        }
+
+        .form-group input, .form-group select {
+            padding: 1rem 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+        }
+
+        .other-ways-note {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed #cbd5e1;
+            text-align: center;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* Contact & Apps Section */
+        .contact-section {
+            padding: 90px 2rem;
+            background: #ffffff;
+            text-align: center;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebc57;
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.35);
+        }
+
+        .telegram-btn {
+            background-color: #0088cc;
+        }
+
+        .telegram-btn:hover {
+            background-color: #0077b3;
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 136, 204, 0.35);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 40px 2rem 20px;
+            text-align: center;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.05rem;
+            }
+            .payment-container {
+                padding: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span>🌱</span>
+                <span id="logo-text">دەزگای هیوا</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" id="nav-home">سەرەتا</a></li>
+                <li><a href="#projects" id="nav-projects">پڕۆژەکان</a></li>
+                <li><a href="#payment" id="nav-payment">بەخشین</a></li>
+                <li><a href="#contact" id="nav-contact">پەیوەندی</a></li>
+                <li><button class="lang-btn" onclick="toggleLanguage()">العربية</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="badge-pulse" id="hero-badge">🤝 دەستێک بەخشندەیی، هەزاران خەندە</span>
+            <h1 id="hero-title">پێکەوە داهاتوویەکی ڕووناکتر بۆ پێویستداران بونیاد دەنێین</h1>
+            <p id="hero-desc">دەزگاکەمان کاردەکات بۆ گەیاندنی هاوکاری بە شێوازێکی شەفاف و ڕاستەوخۆ بۆ خێزانە کەمدەرامەتەکان و منداڵانی بێباوک.</p>
+            <a href="#payment" class="btn-main" id="hero-btn">ئێستا بەخشین بکە ❤️</a>
+        </div>
+    </section>
+
+    <!-- VIP Honor Banner -->
+    <div class="vip-banner">
+        <h3 id="vip-title">🏆 ڕێزلێنان لە بەخشەرە دیارەکان</h3>
+        <p id="vip-desc">ئەو بەخشەرە ئازیزانەی بڕێکی بەرچاو دەبەخشن، تکایە لە ئەپەکانەوە نامەمان بۆ بنێرن تاوەکو **سوپاسنامەی فەرمی**یان پێشکەش بکەین و وەک نموونەی باڵای بەخشندەیی لە دەزگاكەماندا ناویان بنووسین.</p>
+    </div>
+
+    <!-- Impact Cards Section -->
+    <section class="impact-section">
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="icon">🪙</div>
+                <h4 id="imp1-title">١,٠٠٠ دینار</h4>
+                <p id="imp1-desc">دەبێتە هۆی دابینکردنی نانی ڕۆژانە بۆ منداڵێک.</p>
+            </div>
+            <div class="impact-card">
+                <div class="icon">📚</div>
+                <h4 id="imp2-title">٥,٠٠٠ دینار</h4>
+                <p id="imp2-desc">پێداویستی خوێندن بۆ قوتابییەکی کەمدەرامەت دابین دەکات.</p>
+            </div>
+            <div class="impact-card">
+                <div class="icon">🍲</div>
+                <h4 id="imp3-title">٢٥,٠٠٠ دینار</h4>
+                <p id="imp3-desc">سەبەتەیەکی خۆراکی تەواو بۆ خێزانێک دابین دەکات.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2 class="section-title" id="projects-title">پڕۆژە بەردەوامەکانمان</h2>
+        <div class="project-grid">
+            
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800');"></div>
+                <div class="card-body">
+                    <h3 id="card1-title">دابینکردنی جلی وەرزی</h3>
+                    <p id="card1-desc">هاوکاریکردنی زیاتر لە ٥٠٠ منداڵی کەمدەرامەت بە دابینکردنی کەلوپەلی پێویست.</p>
+                    <a href="#payment" class="btn-main" style="padding: 0.7rem 1.8rem; font-size: 0.95rem;" id="card1-btn">هاوکار بە</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800');"></div>
+                <div class="card-body">
+                    <h3 id="card2-title">پشتیوانی خوێندن</h3>
+                    <p id="card2-desc">دابینکردنی پێداویستییەکانی خوێندن بۆ قوتابیانی زانكۆ و قوتابخانەکان.</p>
+                    <a href="#payment" class="btn-main" style="padding: 0.7rem 1.8rem; font-size: 0.95rem;" id="card2-btn">هاوکار بە</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=800');"></div>
+                <div class="card-body">
+                    <h3 id="card3-title">سەبەتەی خۆراک</h3>
+                    <p id="card3-desc">دابەشکردنی سەبەتەی خۆراکی مانگانە بۆ ئەو خێزانانەی سەرپەرشتاریان نییە.</p>
+                    <a href="#payment" class="btn-main" style="padding: 0.7rem 1.8rem; font-size: 0.9rem;" id="card3-btn">هاوکار بە</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Payment Section (Korek Card) -->
+    <section class="payment-section" id="payment">
+        <div class="payment-container">
+            
+            <div class="inspirational-quote" id="quote-text">
+                ✨ "ماڵ بە بەخشین کەم ناکات، بەڵکو بە سەرسوڕمانەوە زیاتری دەکات. هەرچەندت لەدەست بێت ببەخشە، جا گەر ١,٠٠٠ دیناریش بێت."
+            </div>
+
+            <h2 style="text-align: center; font-size: 2.2rem; color: var(--secondary-color);" id="payment-title">بەخشین بە کارتی کۆڕەک</h2>
+            <p style="text-align: center; color: var(--text-light); margin-top: 0.5rem;" id="payment-subtitle">دەتوانیت لەڕێگەی کارتی پڕکردنەوەی کۆڕەک (Korek Scratch Card) ڕاستەوخۆ بەخشینەکەت بنێریت:</p>
+
+            <form class="payment-form" onsubmit="handlePayment(event)">
+                <div class="form-group">
+                    <label id="lbl-name">ناوی بەخشەر (ئارەزوومەندانه):</label>
+                    <input type="text" id="donor-name" placeholder="ئەگەر حەز دەکەیت ناوت بنووسە">
+                </div>
+
+                <div class="form-group">
+                    <label id="lbl-card-code">کۆدی کارتی کۆڕەک (Scratch Code):</label>
+                    <input type="text" id="korek-code" placeholder="کۆدی ١٤ یان ١٦ ڕەقەمی کارتەکە بنووسە" required pattern="[0-9]{10,18}">
+                </div>
+
+                <div class="form-group">
+                    <label id="lbl-amount">بڕی کارتەکە (IQD / USD):</label>
+                    <select id="korek-amount">
+                        <option value="1000 IQD">1,000 IQD (هەزار دینار)</option>
+                        <option value="2000 IQD">2,000 IQD</option>
+                        <option value="3000 IQD">3,000 IQD</option>
+                        <option value="5000 IQD">5,000 IQD ($5)</option>
+                        <option value="10000 IQD">10,000 IQD ($10)</option>
+                        <option value="25000 IQD">25,000 IQD ($25)</option>
+                        <option value="50000 IQD">50,000 IQD ($50)</option>
+                        <option value="100000 IQD">100,000 IQD ($100)</option>
+                        <option value="250000 IQD">250,000 IQD</option>
+                        <option value="500000 IQD">500,000 IQD</option>
+                        <option value="1000000 IQD">1,000,000 IQD (١ ملیۆن دینار)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-main" style="width: 100%; border-radius: 12px; margin-top: 1rem;" id="pay-btn">ناردنی بەخشین</button>
+            </form>
+
+            <div class="other-ways-note">
+                <p id="other-ways-text">💡 **گەر دەتەوێ بە ڕێگایێکی تر بەشدار بیت یان بەخشینی تایبەت بکەیت، تکایە لەڕێگەی ئەپەکانەوە نامەمان بۆ بنێرە.**</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Apps Section -->
+    <section class="contact-section" id="contact">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-size: 2.2rem; color: var(--secondary-color); margin-bottom: 1rem;" id="contact-title">ڕاستەوخۆ پەیوەندیمان پێوە بکە</h2>
+            <p style="color: var(--text-light); margin-bottom: 2.5rem; font-size: 1.1rem;" id="contact-desc">بۆ ناردنی نامە، هاوکاری بە ڕێگەی تر، یان بەدەستهێنانی سوپاسنامەی فەرمی بۆ بەخشینە گەورەکان، لەڕێگەی یەکێک لەم ئەپانەی خوارەوە پەیوەندیمان پێوە بکە:</p>
+            
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/qr/A7ZYX4WQ7IJSC1" target="_blank" class="contact-btn whatsapp-btn">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.842-1.001z"/>
+                    </svg>
+                    <span id="wa-text">واتسئاپ (Lily)</span>
+                </a>
+
+                <!-- Telegram Button -->
+                <a href="https://t.me/LILY_OFFICIAL_001" target="_blank" class="contact-btn telegram-btn">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.941z"/>
+                    </svg>
+                    <span id="tg-text">تێلیگرام (@LILY_OFFICIAL_001)</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p style="font-size: 0.9rem; color: #94a3b8;">&copy; 2026 Hope Charity Organization. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Logic (CKB & AR) -->
+    <script>
+        let currentLang = 'ckb';
+
+        const translations = {
+            ckb: {
+                logo: "دەزگای هیوا",
+                navHome: "سەرەتا",
+                navProjects: "پڕۆژەکان",
+                navPayment: "بەخشین",
+                navContact: "پەیوەندی",
+                heroBadge: "🤝 دەستێک بەخشندەیی، هەزاران خەندە",
+                heroTitle: "پێکەوە داهاتوویەکی ڕووناکتر بۆ پێویستداران بونیاد دەنێین",
+                heroDesc: "دەزگاکەمان کاردەکات بۆ گەیاندنی هاوکاری بە شێوازێکی شەفاف و ڕاستەوخۆ بۆ خێزانە کەمدەرامەتەکان و منداڵانی بێباوک.",
+                heroBtn: "ئێستا بەخشین بکە ❤️",
+                vipTitle: "🏆 ڕێزلێنان لە بەخشەرە دیارەکان",
+                vipDesc: "ئەو بەخشەرە ئازیزانەی بڕێکی بەرچاو دەبەخشن، تکایە لە ئەپەکانەوە نامەمان بۆ بنێرن تاوەکو سوپاسنامەی فەرمییان پێشکەش بکەین و وەک نموونەی باڵای بەخشندەیی لە دەزگاكەماندا ناویان بنووسین.",
+                imp1Title: "١,٠٠٠ دینار",
+                imp1Desc: "دەبێتە هۆی دابینکردنی نانی ڕۆژانە بۆ منداڵێک.",
+                imp2Title: "٥,٠٠٠ دینار",
+                imp2Desc: "پێداویستی خوێندن بۆ قوتابییەکی کەمدەرامەت دابین دەکات.",
+                imp3Title: "٢٥,٠٠٠ دینار",
+                imp3Desc: "سەبەتەیەکی خۆراکی تەواو بۆ خێزانێک دابین دەکات.",
+                projectsTitle: "پڕۆژە بەردەوامەکانمان",
+                card1Title: "دابینکردنی جلی وەرزی",
+                card1Desc: "هاوکاریکردنی زیاتر لە ٥٠٠ منداڵی کەمدەرامەت بە دابینکردنی کەلوپەلی پێویست.",
+                card2Title: "پشتیوانی خوێندن",
+                card2Desc: "دابینکردنی پێداویستییەکانی خوێندن بۆ قوتابیانی زانكۆ و قوتابخانەکان.",
+                card3Title: "سەبەتەی خۆراک",
+                card3Desc: "دابەشکردنی سەبەتەی خۆراکی مانگانە بۆ ئەو خێزانانەی سەرپەرشتاریان نییە.",
+                cardBtn: "هاوکار بە",
+                quoteText: '✨ "ماڵ بە بەخشین کەم ناکات، بەڵکو بە سەرسوڕمانەوە زیاتری دەکات. هەرچەندت لەدەست بێت ببەخشە، جا گەر ١,٠٠٠ دیناریش بێت."',
+                paymentTitle: "بەخشین بە کارتی کۆڕەک",
+                paymentSubtitle: "دەتوانیت لەڕێگەی کارتی پڕکردنەوەی کۆڕەک (Korek Scratch Card) ڕاستەوخۆ بەخشینەکەت بنێریت:",
+                lblName: "ناوی بەخشەر (ئارەزوومەندانه):",
+                lblCardCode: "کۆدی کارتی کۆڕەک (Scratch Code):",
+                lblAmount: "بڕی کارتەکە (IQD / USD):",
+                payBtn: "ناردنی بەخشین",
+                otherWaysText: "💡 **گەر دەتەوێ بە ڕێگایێکی تر بەشدار بیت یان بەخشینی تایبەت بکەیت، تکایە لەڕێگەی ئەپەکانەوە نامەمان بۆ بنێرە.**",
+                contactTitle: "ڕاستەوخۆ پەیوەندیمان پێوە بکە",
+                contactDesc: "بۆ ناردنی نامە، هاوکاری بە ڕێگەی تر، یان بەدەستهێنانی سوپاسنامەی فەرمی بۆ بەخشینە گەورەکان، لەڕێگەی یەکێک لەم ئەپانەی خوارەوە پەیوەندیمان پێوە بکە:",
+                langBtn: "العربية"
+            },
+            ar: {
+                logo: "مؤسسة الأمل",
+                navHome: "الرئيسية",
+                navProjects: "المشاريع",
+                navPayment: "التبرع",
+                navContact: "اتصل بنا",
+                heroBadge: "🤝 يد العطاء، تصنع ألف ابتسامة",
+                heroTitle: "معاً نبني مستقبلاً أملأ بالأمل للمحتاجين",
+                heroDesc: "تعمل مؤسستنا على إيصال المساعدات بشكل شفاف ومباشر للأسر المتعففة والأيتام.",
+                heroBtn: "تبرع الآن ❤️",
+                vipTitle: "🏆 تكريم كبار المتبرعين",
+                vipDesc: "المتبرعون الكرام الذين يقدمون مبالغ كبيرة، يرجى مراسلتنا عبر التطبيقات لنرسل لكم شهادة شكر وتقدير رسمية ولتكونوا نموذجاً يُحتذى به في العطاء.",
+                imp1Title: "١,٠٠٠ دينار",
+                imp1Desc: "تساهم في توفير وجبة طعام لطفل محتاج.",
+                imp2Title: "٥,٠٠٠ دينار",
+                imp2Desc: "توفر المستلزمات الدراسية لطالب متعفف.",
+                imp3Title: "٢٥,٠٠0 دينار",
+                imp3Desc: "توفر سلة غذائية كاملة لعائلة محتاجة.",
+                projectsTitle: "مشاريعنا المستمرة",
+                card1Title: "توفير الملابس الموسمية",
+                card1Desc: "مساعدة أكثر من ٥٠٠ طفل محتاج بتوفير المستلزمات الأساسية.",
+                card2Title: "دعم التعليم",
+                card2Desc: "توفير المستلزمات الدراسية لطلاب المدارس والجامعات.",
+                card3Title: "السلة الغذائية",
+                card3Desc: "توزيع سلات غذائية شهرياً للأسر التي لا معيل لها.",
+                cardBtn: "ساهم معنا",
+                quoteText: '✨ "ما نقص مال من صدقة، بل تزيدك بركة ونماء. تبرع بما تستطيع، ولو بألف دينار."',
+                paymentTitle: "التبرع عبر كارت كورك",
+                paymentSubtitle: "يمكنك إرسال تبرعك مباشرة باستخدام كروت تعبئة كورك (Korek Scratch Card):",
+                lblName: "اسم المتبرع (اختياري):",
+                lblCardCode: "رمز كارت كورك (Scratch Code):",
+                lblAmount: "فئة الكارت (IQD / USD):",
+                payBtn: "إرسال التبرع",
+                otherWaysText: "💡 **إذا كنت ترغب في المشاركة بطرق أخرى أو تقديم تبرع خاص، يرجى مراسلتنا عبر التطبيقات أدناه.**",
+                contactTitle: "تواصل معنا مباشرة",
+                contactDesc: "لإرسال رسالة، التبرع بطرق أخرى، أو الحصول على شهادة شكر للتبرعات الكبيرة، تواصل معنا عبر التطبيقات:",
+                langBtn: "کوردی"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ckb' ? 'ar' : 'ckb';
+            const html = document.documentElement;
+            
+            html.setAttribute('dir', 'rtl');
+            html.setAttribute('lang', currentLang);
+
+            const t = translations[currentLang];
+            document.getElementById('logo-text').innerText = t.logo;
+            document.getElementById('nav-home').innerText = t.navHome;
+            document.getElementById('nav-projects').innerText = t.navProjects;
+            document.getElementById('nav-payment').innerText = t.navPayment;
+            document.getElementById('nav-contact').innerText = t.navContact;
+            
+            document.getElementById('hero-badge').innerText = t.heroBadge;
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-desc').innerText = t.heroDesc;
+            document.getElementById('hero-btn').innerText = t.heroBtn;
+
+            document.getElementById('vip-title').innerText = t.vipTitle;
+            document.getElementById('vip-desc').innerText = t.vipDesc;
+            
+            document.getElementById('imp1-title').innerText = t.imp1Title;
+            document.getElementById('imp1-desc').innerText = t.imp1Desc;
+            document.getElementById('imp2-title').innerText = t.imp2Title;
+            document.getElementById('imp2-desc').innerText = t.imp2Desc;
+            document.getElementById('imp3-title').innerText = t.imp3Title;
+            document.getElementById('imp3-desc').innerText = t.imp3Desc;
+
+            document.getElementById('projects-title').innerText = t.projectsTitle;
+            
+            document.getElementById('card1-title').innerText = t.card1Title;
+            document.getElementById('card1-desc').innerText = t.card1Desc;
+            document.getElementById('card1-btn').innerText = t.cardBtn;
+
+            document.getElementById('card2-title').innerText = t.card2Title;
+            document.getElementById('card2-desc').innerText = t.card2Desc;
+            document.getElementById('card2-btn').innerText = t.cardBtn;
+
+            document.getElementById('card3-title').innerText = t.card3Title;
+            document.getElementById('card3-desc').innerText = t.card3Desc;
+            document.getElementById('card3-btn').innerText = t.cardBtn;
+
+            document.getElementById('quote-text').innerText = t.quoteText;
+            document.getElementById('payment-title').innerText = t.paymentTitle;
+            document.getElementById('payment-subtitle').innerText = t.paymentSubtitle;
+            document.getElementById('lbl-name').innerText = t.lblName;
+            document.getElementById('lbl-card-code').innerText = t.lblCardCode;
+            document.getElementById('lbl-amount').innerText = t.lblAmount;
+            document.getElementById('pay-btn').innerText = t.payBtn;
+            document.getElementById('other-ways-text').innerText = t.otherWaysText;
+
+            document.getElementById('contact-title').innerText = t.contactTitle;
+            document.getElementById('contact-desc').innerText = t.contactDesc;
+            
+            document.querySelector('.lang-btn').innerText = t.langBtn;
+        }
+
+        function handlePayment(e) {
+            e.preventDefault();
+            const name = document.getElementById('donor-name').value || (currentLang === 'ckb' ? "بەخشەر" : "متبرع");
+            const code = document.getElementById('korek-code').value;
+            const amount = document.getElementById('korek-amount').value;
+
+            const msg = currentLang === 'ckb' 
+                ? `سڵاو، من دەمەوێت بەخشین بکەم لەڕێگەی کارتی کۆڕەک:%0A👤 ناوی بەخشەر: ${name}%0A💳 کۆدی کارت: ${code}%0A💰 بڕی کارت: ${amount}`
+                : `مرحبا، أرغب بالتبرع عبر كارت كورك:%0A👤 اسم المتبرع: ${name}%0A💳 رمز الكارت: ${code}%0A💰 فئة الكارت: ${amount}`;
+            
+            window.open(`https://t.me/LILY_OFFICIAL_001?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
